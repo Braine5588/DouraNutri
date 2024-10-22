@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url('/img/foto2.1.jpg');
+    background-size: cover; /* Garante que a imagem cubra todo o fundo */
+    background-position: center center center; /* Centraliza a imagem na tela */
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+  }
+    
+h1 {
+    background-color: #006400;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+header {
+    background-color: #006400;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    
+    
+    
+}
+#menu-button {
+    position: absolute;
+    bottom: 0;
+    left: 150px;
+    background-color: #006400;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+}
+#home-button {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    background-color: #006400;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+}
+.message {
+    position:fixed;
+    display:inline;
+    bottom: 10px;
+    border-radius: 1px ;
+    border: 1px solid black; /* borda em cima */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: lightgreen;
+    padding: 10px;
+    font-weight: bold;
+    z-index: 2;
+}
+.menu {
+    position: absolute;
+    width: 250px;
+    background-color: #556B2F;
+    opacity: 70%;
+    padding: 0px;
+    top: 116px;
+    left: -250px; /* Inicialmente oculto */
+    height: 100%;
+    transition: left 0.5s;
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical */
+}
+.menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+.menu a:hover {
+    background-color: #556B2F;
+}  
+label {
+    display: inline-block;
+    width:200px;
+    margin-right: 100px; /* Espaçamento entre o label e o input */
+    padding: 0 0 0 8px;
+    font-size: 15px;
+    font-weight: bold;
+}
+input, textarea, select{
+    display: inline-block;
+    width: 65%;
+    height: 25px;    
+    background-color: transparent;
+    border: 1px solid black;
+    background-color: rgba(85, 107, 47, 0.3);
+    font-size: 15px;
+    font-weight: bold;
+}
+.form {
+    width: 60%;
+    border-radius: 5px ;
+    border: 5px solid black; /* borda em cima */
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: rgba(85, 107, 47, 0.7);
+    z-index: 1;
+}
+.formimc {
+    width: 100%;
+    border-radius: 5px ;
+    border: 5px solid black; /* borda em cima */
+    text-align: left;
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: rgba(85, 107, 47, 0.7);
+    z-index: 1;
+}
+.formimc input[type=text]{
+    width: 50%;
+}
+   
+#cadastrar-button{
+    background-color: #006400;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+}
+#cadastrar-buttonimc{   
+    background-color: #006400;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    border-radius: 3px;
+    font-size: 9px;
+    cursor: pointer;
+    float: left;
+}
+#gerar-lista{
+    width: 25%;
+    background-color: rgba(85, 107, 47, 0.7);
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 3px;
+}
+
+.messagefalha {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: darkred;
+    padding: 10px;
+    font-weight: bold;
+    z-index: 2;
+}
+.edit-link, .delete-link {
+    display: inline-block;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.edit-link {
+    background-color: #006400;
+}
+.edit-link:hover {
+    background-color: #004d00;
+}
+.delete-link {
+    background-color: #8B0000;
+    margin-top: 5px;
+}
+.delete-link:hover {
+    background-color: #5A0000;
+}
+input[type="radio"]{
+  display: inline; /* the default for span */
+  width: 15px;
+  height: 15px;
+  padding: 5px;
+  accent-color: rgba(85, 107, 47, 0.3);
+}
+.span1{
+    display: inline-block;
+    width: 65%;
+    height: 25px;    
+    background-color: transparent;
+    border: 1px solid black;
+    background-color: rgba(85, 107, 47, 0.3);
+    font-size: 15px;
+    font-weight: bold;
+}
+span{
+    display: inline; /* the default for span */
+    width: 2px;
+    height: 2px;
+    padding: 2px;
+}
+.imagem-container {
+    position: absolute;
+    top: 32%;
+    left: 100%;
+    transform: translateY(-15%) translateX(-10%);
+    text-align: center;
+    max-width: 30%;
+    font-size: 9px;
+    font-weight: bold;
+    z-index: 2;
+}
+.imagem-container img{
+    width: 50%; /* Define a largura da imagem para 100% do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+    height: auto;
+}
+#imc-button {
+    position: absolute;
+    top: 120px; 
+    right: 25px; 
+    background-image: url('/img/imc.png');
+    background-size: cover;
+    background-position: center;
+    width: 65px;
+    height: 65px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.tabela {
+    position: absolute;
+    top: 60%;
+    left: 48%;
+    transform: translateY(-50%) translateX(-50%);
+    background-color: rgba(85, 107, 47, 0.7);
+    text-align: center;
+    border-radius: 5px ;
+    border: 5px solid black; /* borda em cima */
+    max-height: 500px; /* Defina o tamanho máximo da tabela */
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical */
+}
+th, td {
+    border: 1px solid black; /* borda em cima */
+}
+#grafico-button {
+    position: absolute;
+    top: 120px; 
+    right: 25px; 
+    background-image: url('/img/grafico-preditivo.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
+    background-size: cover; /* Define como a imagem de fundo é dimensionada */
+    background-position: center; /* Define a posição da imagem de fundo */
+    width: 65px; /* Largura do botão */
+    height: 65px; /* Altura do botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Mude o cursor ao passar o mouse sobre o botão */
+    background-color: transparent; /* Torna o texto do botão transparente */
+}
+#pdf-button {
+    position: absolute;
+    top: 120px; 
+    right: 25px; 
+    background-image: url('/img/baixar-pdf.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
+    background-size: cover; /* Define como a imagem de fundo é dimensionada */
+    background-position: center; /* Define a posição da imagem de fundo */
+    width: 65px; /* Largura do botão */
+    height: 65px; /* Altura do botão */
+    border: none; /* Remove a borda padrão do botão */
+    cursor: pointer; /* Mude o cursor ao passar o mouse sobre o botão */
+    background-color: transparent; /* Torna o texto do botão transparente */
+}
+.alinhamentotexto {
+    position: absolute;
+    top: 180px;
+    left: 300px;
+    padding: 20px;
+    
+}
+
+li {
+    font-size: 18px;
+    text-align: justify;
+}
+.alinhamentousuario{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    border: none;
+    right: 10px;
+    
+}
+.menuhome {
+    width: 250px;
+    background-color: #556B2F;
+    opacity: 70%;
+    padding: 0px;
+    position: fixed;
+    top: 160;
+    height: 100%;
+    transition: left 0.5s;
+}
+
+.menuhome a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menuhome a:hover {
+  background-color: #556B2F;
+}
+.grafico {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    opacity: 70%;
+    text-align: center;
+    width: 0%;
+    height: 0%;
+    z-index: 1;
+  }
+
+  .grafico1 {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    opacity: 70%;
+    text-align: center;
+    width: 0%;
+    height: 0%;
+    z-index: 1;
+    
+
+  }
+
+  .grafico2 {
+    position: absolute;
+    top: 30%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    opacity: 70%;
+    text-align: center;
+    width: 0%;
+    height: 0%;
+    z-index: 1;
+
+  }
+
+@media only screen and (max-width: 1466px) {
+.form {
+    width: 50%;
+    top: 60%;
+    z-index: 1;
+}
+  
+.imagem-container {
+    left: 60%;
+}
+input, textarea, select, .span1{
+    width: 40%;
+}
+
+.menu {
+    z-index: 2;
+}
+.tabela {
+    top: 62%;
+    max-height: 450px;
+}
+
+#menu-button{
+    right: 1000px;
+}  
+
+}
+@media only screen and (max-width: 1380px) {
+    
+    span {
+        font-size: 12px;
+    }
+   
+    #gerar-lista{
+        width: 25%;
+        left: 100px;
+    }
+    
+}
+
+@media only screen and (max-width: 1035px) {
+        .form {
+            width: 50%;
+            top: 60%;
+            z-index: 1;
+        }
+    
+        label{
+            font-size: 12px;
+        }
+       input, textarea, select, .span1{
+            font-size: 12px;
+            width: 30%;
+        }
+        h1{
+            font-size: 15px;
+            padding: 10px;
+        }
+        .alinhamentousuario {
+            font-size: 10px;
+            }
+            #gerar-lista{
+                font-size: 12px;
+        }
+        .alinhamentotexto {
+            font-size: 12px;
+            top: 100px;
+        }
+        .menuhome {
+            width: 200px;
+        }
+        .menuhome a{
+            padding: 5px 0;
+            font-size: 12px;
+        }
+        .grafico {
+            top: 10%;
+            left: 0%;
+        }
+        .grafico1{
+            top: 10%;
+            left: 30%
+        }
+        .grafico2{
+        top:10%;
+        left:60%;
+    }
+    }
+@media only screen and (max-width: 900px) {
+    label{
+        font-size:9px;
+        margin-right: 0px;
+    }
+    span, .span1,input,select, textarea{
+        font-size: 9px;
+        width: 100%;
+    }
+    
+    body{
+        background-repeat: repeat-y;
+    }
+    #menu-button{
+        left: 60px;
+    }
+    #menu-button, #home-button{
+        font-size: 10px;
+    }
+    .tabela {
+        
+        left: 50%;
+        font-size: 8px;
+        max-height: 250px;
+    }
+    .menu {
+        
+        width: 150px;
+    }
+    .menu a{
+        padding: 5px 0;
+        font-size: 12px;
+    }
+    .form{
+        width: 35%;
+        max-height: 250px;
+        overflow-y: auto;
+    }
+    #gerar-lista{
+        font-size: 8px;
+
+    }
+    #cadastrar-button{
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    .alinhamentotexto, li, h2{
+        font-size: 12px;
+        top: 70px;
+        left: 200px;
+    }
+    .menuhome {
+        position: static;
+        height: 660px;
+        overflow-y: auto;
+    }
+    .grafico {
+        top: 10%;
+        left: 20%;
+    }
+    .grafico1{
+        top: 80%;
+        left: 20%;
+    }
+    .grafico2{
+    top:150%;
+    left:20%;
+    }
+}
+
+    @media only screen and (max-height: 305px) {
+       .menu {
+        position: absolute;
+       max-height: 500px;
+        overflow-y: scroll;
+        overflow-x: scroll;
+       }
+        .menu a{
+            font-size: 9px;
+        }
+        .form {
+            position: static;
+            transform: translate(100%);
+            max-height: 150px;
+        }
+        .tabela {
+            position: static;
+            max-height: 150px;
+            max-width: 300px;
+            transform: translate(25%);
+        }
+        #pdf-button, #grafico-button{
+            top: 60px;
+            right: 10px;
+        }
+    }
