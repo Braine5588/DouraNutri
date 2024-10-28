@@ -45,28 +45,28 @@ if ($cargo !== 'Nutricionista') {
             
             if ($imc < 16.000) {
                 echo "Magreza grau III <br>";
-             echo '<img src="/img/magreza 3.jpg" alt="Magreza grau III">';
+             echo '<img src="/img/magreza 3.png" alt="Magreza grau III">';
             } elseif ($imc >= 16.000 && $imc <= 16.999) {
                 echo "Magreza grau II <br>" ;
-                echo '<img src="/img/magreza 2.jpg">'; 
+                echo '<img src="/img/magreza 2.png">'; 
             } elseif ($imc >= 17.000 && $imc <= 18.499) {
                 echo "Magreza grau I <br>";
-                echo '<img src="/img/magreza 1.jpg">'; 
+                echo '<img src="/img/magreza 1.png">'; 
             } elseif ($imc >= 18.500 && $imc <= 24.999) {
                 echo "Eutrofia <br>" ;
-                echo '<img src="/img/eutrofia.jpg">';
+                echo '<img src="/img/eutrofia.png">';
             } elseif ($imc >= 25.000 && $imc <= 29.999) {
                 echo "Sobrepeso <br>" ;
-                 echo '<img src="/img/sobrepeso.jpg">';
+                 echo '<img src="/img/sobrepeso.png">';
             } elseif ($imc >= 30.000 && $imc <= 34.999) {
                 echo "Obesidade grau I <br>" ;
-                echo '<img src="/img/obesidade 1.jpg">';
+                echo '<img src="/img/obesidade 1.png">';
             } elseif ($imc >= 35.000 && $imc <= 39.999) {
                 echo "Obesidade grau II <br>" ;
-                 echo '<img src="/img/obesidade 2.jpg">';
+                 echo '<img src="/img/obesidade 2.png">';
             } elseif ($imc >= 40.000) {
                 echo "Obesidade grau III <br>" ;
-                 echo '<img src="/img/obesidade 3.jpg">';
+                 echo '<img src="/img/obesidade 3.png">';
             }
         }
         ?>
