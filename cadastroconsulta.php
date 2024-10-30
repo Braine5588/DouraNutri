@@ -5,5 +5,7 @@ if ($cargo !== 'Nutricionista') {
     exit(); // Garante que o script seja interrompido
 }
 require 'Model/cadastroconsulta.model.php';
+$cadastro = new CadastroConsulta();
+$cadastro->cadastrarConsulta();
 include 'View/consulta.view.php';
 ?>

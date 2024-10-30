@@ -5,6 +5,8 @@ if ($cargo !== 'Nutricionista' && $cargo !== 'Administrador' && $cargo !== 'Vend
     exit(); // Garante que o script seja interrompido
 }
 require 'Model/cadastropedido.model.php';
+$cadastro = new CadastroPedido();
+$cadastro->cadastrarPedido();
 include 'View/pedido.view.php';
 ?>
 
