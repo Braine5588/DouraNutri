@@ -12,7 +12,7 @@ if ($cargo !== 'Nutricionista' && $cargo !== 'Administrador' && $cargo !== 'Vend
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estoque</title>
-  <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+  <link rel="icon" type="image/x-icon" href="img/ts1.png">
   <link href="CSS/style.css" rel="stylesheet"/>
   <link href="CSS/fontawesome.css" rel="stylesheet"/>
 
@@ -24,7 +24,7 @@ if ($cargo !== 'Nutricionista' && $cargo !== 'Administrador' && $cargo !== 'Vend
     <button id="home-button">Home</button>
     <div class = "alinhamentousuario">
     <p> 
-    <img src="/img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
   </header>

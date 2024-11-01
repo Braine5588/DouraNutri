@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body {
-    background-image: url('/img/foto2.1.jpg');
+    background-image: url('../img/foto2.1.jpg');
     background-size: cover; /* Garante que a imagem cubra todo o fundo */
     background-position: center center center; /* Centraliza a imagem na tela */
     background-repeat: no-repeat;
@@ -249,7 +249,7 @@ span{
     position: absolute;
     top: 120px; 
     right: 25px; 
-    background-image: url('/img/imc.png');
+    background-image: url('../img/imc.png');
     background-size: cover;
     background-position: center;
     width: 65px;
@@ -277,7 +277,7 @@ th, td {
     position: absolute;
     top: 120px; 
     right: 25px; 
-    background-image: url('/img/grafico-preditivo.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
+    background-image: url('../img/grafico-preditivo.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
     background-size: cover; /* Define como a imagem de fundo é dimensionada */
     background-position: center; /* Define a posição da imagem de fundo */
     width: 65px; /* Largura do botão */
@@ -290,7 +290,7 @@ th, td {
     position: absolute;
     top: 120px; 
     right: 25px; 
-    background-image: url('/img/baixar-pdf.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
+    background-image: url('../img/baixar-pdf.png'); /* Substitua 'pdf.png' pelo caminho da sua imagem */
     background-size: cover; /* Define como a imagem de fundo é dimensionada */
     background-position: center; /* Define a posição da imagem de fundo */
     width: 65px; /* Largura do botão */

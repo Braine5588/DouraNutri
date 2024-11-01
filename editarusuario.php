@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar Usuario</title>
-  <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+  <link rel="icon" type="image/x-icon" href="img/ts1.png">
   <link href="CSS/style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button id="home-button">Home</button>
     <div class="alinhamentousuario">
     <p> 
-    <img src="/img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
   </header>

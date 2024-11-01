@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['tabelaHTML'])) {
 
 
 $html = '<div style="text-align: center;">';
-$html .= '<img src="D:\xampp\htdocs\img\fundopdf.jpg" style="display: inline-block;">';
+$html .= '<img src="D:\Xampp\htdocs\DouraNutri\img\fundopdf.jpg" style="display: inline-block;">';
 $html .= '<br><h1 style="text-align: center;">Lista de Produtos e Alimentos</h1><br>';
 $html .= '<div style="display: inline-block; text-align: left;">'; // Adicione uma div para centralizar a tabela
 $html .= $_POST['tabelaHTML'];

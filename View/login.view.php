@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Login</title>
-    <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+    <link rel="icon" type="image/x-icon" href="img/ts1.png">
     <link rel="stylesheet" href="CSS/stylelogin.css">
 </head>
 <body>

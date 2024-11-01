@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Consulta</title>
-  <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+  <link rel="icon" type="image/x-icon" href="img/ts1.png">
   <link href="CSS/style.css" rel="stylesheet"/>
   </style>
 </head>
@@ -16,7 +16,7 @@
     <button id="home-button">Home</button>
     <div class = "alinhamentousuario">
     <p> 
-    <img src="/img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
   </header>
@@ -43,7 +43,7 @@
           die("Erro na conexão com o banco de dados: " . $db->connect_error);
         }
 
-        $result = $db->query("SELECT Nome FROM cadastrovendedor");
+        $result = $db->query("SELECT Nome FROM cadastrovendedor WHERE Cargo = 'Nutricionista' ");
         while ($row = $result->fetch_assoc()) {
           echo "<option value='" . $row['Nome'] . "'>" . $row['Nome'] . "</option>";
         }

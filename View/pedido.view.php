@@ -4,18 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Pedidos</title>
-  <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+  <link rel="icon" type="image/x-icon" href="img/ts1.png">
   <link href="CSS/style.css" rel="stylesheet"/>
 </head>
 <body>
   <header>
     <h1>Cadastro de Pedidos</h1>
-    <link rel="icon" type="image/x-icon" href="ts1.jpg">
     <button id="menu-button">Menu</button>
     <button id="home-button">Home</button>
     <div class = "alinhamentousuario">
     <p> 
-    <img src="/img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
   </header>

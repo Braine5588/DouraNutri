@@ -13,7 +13,7 @@ if ($cargo !== 'Nutricionista' && $cargo !== 'Administrador' && $cargo !== 'Vend
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="icon" type="image/x-icon" href="/img/ts1.png">
+    <link rel="icon" type="image/x-icon" href="img/ts1.png">
     <link href="CSS/style.css" rel="stylesheet"/> 
 </head>
 <body>
@@ -21,7 +21,7 @@ if ($cargo !== 'Nutricionista' && $cargo !== 'Administrador' && $cargo !== 'Vend
     <h1>Sistema de Gerenciamento da DouraNutri</h1>
     <div class = "alinhamentousuario">
     <p> 
-    <img src="/img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
 </header>
