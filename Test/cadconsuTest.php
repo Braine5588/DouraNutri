@@ -1,6 +1,8 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once 'Model/cadastroconsulta.model.php';
+require_once 'conexao.php';
+
 
 class cadconsuTest extends TestCase
 {
@@ -9,15 +11,13 @@ class cadconsuTest extends TestCase
     protected function setUp(): void
     {
         $this->cadastroConsultaMock = $this->getMockBuilder(CadastroConsulta::class)
-        ->onlyMethods(['connectaBD', 'cadastrarConsulta'])
-        ->getMock();
+                                           ->onlyMethods(['cadastrarConsulta'])
+                                           ->getMock();
     }
 
     public function testcadastroconsultaSuccesso()
     {
-        // Simulando valores de POST
-        $_SERVER["REQUEST_METHOD"] = "POST";
-        $_POST = [
+        $dados = [
             "nomecli" => "Marcelo Vieira da Silva Junior ",
             "nomevend" => "Victoria Souza Fernandes",
             "altura" => "1.70",
@@ -28,19 +28,18 @@ class cadconsuTest extends TestCase
         ];
 
         $this->cadastroConsultaMock->expects($this->once())
-        ->method('cadastrarConsulta')
-        ->willReturn('<div class="message">Consulta cadastrada com sucesso!</div>');
+                                   ->method('cadastrarConsulta')
+                                   ->with($dados)
+                                   ->willReturn('<div class="message">Consulta cadastrada com sucesso!</div>');
 
-$output = $this->cadastroConsultaMock->cadastrarConsulta();
+$resultado = $this->cadastroConsultaMock->cadastrarConsulta($dados);
 
-$this->assertStringContainsString('Consulta cadastrada com sucesso!', $output);
+$this->assertStringContainsString('Consulta cadastrada com sucesso!', $resultado);
 }
 
 public function testcadastroconsultaFalha()
 {
-    // Simulando valores de POST
-    $_SERVER["REQUEST_METHOD"] = "POST";
-    $_POST = [
+    $dados = [
         "nomecli" => "Marcelo Vieira da Silva Junior ",
         "nomevend" => "Victoria Souza Fernandes",
         "altura" => "1.70",
@@ -51,12 +50,13 @@ public function testcadastroconsultaFalha()
     ];
 
     $this->cadastroConsultaMock->expects($this->once())
-    ->method('cadastrarConsulta')
-    ->willReturn('<div class="messagefalha">Erro ao cadastrar consulta!</div>');
+                               ->method('cadastrarConsulta')
+                               ->with($dados)
+                               ->willReturn('<div class="messagefalha">Erro ao cadastrar consulta!</div>');
 
-$output = $this->cadastroConsultaMock->cadastrarConsulta();
+$resultado = $this->cadastroConsultaMock->cadastrarConsulta($dados);
 
-$this->assertStringContainsString('Erro ao cadastrar consulta!', $output);
+$this->assertStringContainsString('Erro ao cadastrar consulta!', $resultado);
 }
 
 }

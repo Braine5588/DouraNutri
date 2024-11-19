@@ -1,46 +1,30 @@
 <?php
 class CadastroCliente {
-  private $Nome;
-  private $Idade;
-  private $CPF;
-  private $Endereco;
-  private $Altura;
-  private $conn;
+    private $conn;
 
-  public function __construct() {
-    $this->connectaBD();
-  }
-
-  private function connectaBD() {
-    $server = "localhost";
-    $user = "root";
-    $pass = "";
-    $mydb = "tb_produtos";
-
-    $this->conn = new mysqli($server, $user, $pass, $mydb);
-
-    if ($this->conn->connect_error) {
-      die("Conexão Falhou: " . $this->conn->connect_error);
+    public function __construct() {
+        // Conecta ao banco de dados usando o arquivo `conexao.php`
+        $this->conn = (new Conexao())->conn;
     }
-  }
 
-  public function cadastrarCliente() {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $this->Nome = $_POST["nome"];
-      $this->Idade = $_POST["idade"];
-      $this->CPF = $_POST["cpf"];
-      $this->Endereco = $_POST["endereco"];
-      $this->Altura = $_POST["altura"];
+    public function cadastrarCliente($dados) {
+        // Extrai os dados do formulário
+        $nome = $dados["nome"];
+        $idade = $dados["idade"];
+        $cpf = $dados["cpf"];
+        $endereco = $dados["endereco"];
+        $altura = $dados["altura"];
 
-      $sql = "INSERT INTO cadastrocliente (Nome, Idade, CPF, Endereco, Altura)
-              VALUES ('$this->Nome', '$this->Idade', '$this->CPF', '$this->Endereco', '$this->Altura')";
+        // Prepara e executa a consulta SQL
+        $sql = "INSERT INTO cadastrocliente (Nome, Idade, CPF, Endereco, Altura) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("sisss", $nome, $idade, $cpf, $endereco, $altura);
 
-      if ($this->conn->query($sql) === TRUE) {
-      echo '<div class="message">Cliente cadastrado com sucesso!</div>';
-      } else {
-        echo '<div class="messagefalha">Erro ao cadastrar o cliente: </div>' . $this->conn->error;
-      }
+        if ($stmt->execute()) {
+            return '<div class="message">Cliente cadastrado com sucesso!</div>';
+        } else {
+            return '<div class="messagefalha">Erro ao cadastrar o cliente: ' . $this->conn->error . '</div>';
+        }
     }
-  }
 }
 ?>

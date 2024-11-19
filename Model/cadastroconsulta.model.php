@@ -1,62 +1,54 @@
 <?php
-class CadastroConsulta{
-    private $NOME_CLIENTE;
-    private $NOME_VENDEDOR;
-    private $Altura;
-    private $Peso;
-    private $Data_consulta;
-    private $Objetivo;
-    private $Desc_consul;
-    public $conn;
+
+
+class CadastroConsulta {
+    private $conn;
 
     public function __construct() {
-        $this->connectaBD();
-      }
-    
-      private function connectaBD() {
-        $server = "localhost";
-        $user = "root";
-        $pass = "";
-        $mydb = "tb_produtos";
-    
-        $this->conn = new mysqli($server, $user, $pass, $mydb);
-    
-        if ($this->conn->connect_error) {
-          die("Conexão Falhou: " . $this->conn->connect_error);
+        $conexao = new Conexao();
+        $this->conn = (new Conexao())->conn;
+    }
+
+    public function cadastrarConsulta($dados) {
+        $nomeCliente = $dados["nomecli"];
+        $nomeVendedor = $dados["nomevend"];
+        $peso = $dados["peso"];
+        $dataConsulta = $dados["dataconsu"];
+        $objetivo = $dados["objetivo"];
+        $descConsulta = $dados["parecer"];
+
+        // Obtém a altura do cliente
+        $stmtAltura = $this->conn->prepare("SELECT Altura FROM cadastrocliente WHERE Nome = ?");
+        $stmtAltura->bind_param("s", $nomeCliente);
+        $stmtAltura->execute();
+        $resultAltura = $stmtAltura->get_result();
+        $altura = $resultAltura->fetch_assoc()['Altura'] ?? 0;
+        $stmtAltura->close();
+
+        // Insere os dados na tabela cadastroconsulta
+        $stmt = $this->conn->prepare(
+            "INSERT INTO cadastroconsulta (NOME_CLIENTE, NOME_VENDEDOR, Altura, Peso, Data_consulta, Objetivo, Desc_consul)
+            VALUES (?, ?, ?, ?, ?, ?, ?)"
+        );
+        $stmt->bind_param("sssssss", $nomeCliente, $nomeVendedor, $altura, $peso, $dataConsulta, $objetivo, $descConsulta);
+
+        if ($stmt->execute()) {
+            return '<div class="message">Consulta cadastrada com sucesso!</div>';
+        } else {
+            return '<div class="messagefalha">Erro ao cadastrar a consulta: ' . $this->conn->error . '</div>';
         }
-      }
-      
-      public function cadastrarConsulta(){
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $NOME_CLIENTE = $_POST["nomecli"];
-    $NOME_VENDEDOR = $_POST["nomevend"];
-    $Peso = $_POST["peso"];
-    $Data_consulta = $_POST["dataconsu"];
-    $Objetivo = $_POST["objetivo"];
-    $Desc_consul = $_POST["parecer"];
-
-    $selectedCliente = $_POST["nomecli"];
-    $result = $this->conn->query("SELECT Altura FROM cadastrocliente WHERE Nome = '$selectedCliente'");
-
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $Altura = $row["Altura"];
-    } else {
-        $Altura = 0; // Defina um valor padrão ou trate o erro de alguma outra forma
     }
 
-    $stmt = $this->conn->prepare("INSERT INTO cadastroconsulta (NOME_CLIENTE, NOME_VENDEDOR, Altura, Peso, Data_consulta, Objetivo, Desc_consul) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssssss", $NOME_CLIENTE, $NOME_VENDEDOR, $Altura, $Peso, $Data_consulta, $Objetivo, $Desc_consul);
-
-    if ($stmt->execute()) {
-        echo '<div class="message">Consulta cadastrada com sucesso!</div>';
-    } else {
-        echo '<div class="messagefalha">Erro ao cadastrar a consulta: </div>' . $this->conn->error;
+    public function listarNutricionistas() {
+        $stmt = $this->conn->prepare("SELECT Nome FROM cadastrovendedor WHERE Cargo = 'Nutricionista'");
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
-    $stmt->close();
+    public function listarClientes() {
+        $stmt = $this->conn->prepare("SELECT Nome, Altura FROM cadastrocliente");
+        $stmt->execute();
+        return $stmt->get_result();
+    }
 }
-}
-}
-
 ?>

@@ -24,7 +24,7 @@ if ($cargo == 'Nutricionista') {
     <a href="cadastroconsulta.php">Cadastro de Consulta</a>
     <a href="gerenciamentoconsulta.php">Consultas Cadastradas</a>
     <a href = "editarusuario.php"> Editar Usuário </a>
-    <a href="logout.php">Sair</a> 
+    <a href="../logout.php">Sair</a> 
 </div>
 
 <?php
@@ -40,7 +40,7 @@ if ($cargo == 'Nutricionista') {
     <a href="cadastrocliente.php">Cadastro de Cliente</a>
     <a href="listarcliente.php">Clientes Cadastrados</a>
     <a href = "editarusuario.php"> Editar Usuário </a>
-    <a href="logout.php">Sair</a> 
+    <a href="../logout.php">Sair</a> 
 </div>
 <?php
 } elseif ($cargo == 'Vendedor'){
@@ -51,7 +51,7 @@ if ($cargo == 'Nutricionista') {
     <a href="cadastropedido.php">Cadastro de Pedido</a>
     <a href="cadastrocliente.php">Cadastro de Cliente</a>
     <a href = "editarusuario.php"> Editar Usuário </a>
-    <a href="logout.php">Sair</a> 
+    <a href="../logout.php">Sair</a> 
 </div>
 <?php
 }

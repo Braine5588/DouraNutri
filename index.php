@@ -1,27 +1,14 @@
-
 <?php
 include 'View/login.view.php';
+include 'conexao.php';
 session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
 class Login {
     private $conn;
     
-    public function __construct() {
-        $this->connectaBD();
-    }
-
-    private function connectaBD() {
-        $server = "localhost";
-        $user = "root";
-        $pass = "";
-        $mydb = "tb_produtos";
-
-        $this->conn = new mysqli($server, $user, $pass, $mydb);
-
-        if ($this->conn->connect_error) {
-            die("Conexão Falhou: " . $this->conn->connect_error);
-        }
+    public function __construct($conn) {
+        $this->conn = $conn;
     }
 
     public function autenticar($usuario, $senha, $cargo) {
@@ -45,18 +32,23 @@ class Login {
         if ($result->num_rows > 0) {
             // Obter os dados do usuário
             $row = $result->fetch_assoc();
-            if (password_verify($senha, $row['Senha'])){
-           $_SESSION['autenticar'] = $row['Usuario'] . "\n" . $row['Cargo']; // Armazenar o nome do usuário na sessão
-            return true;
+            if (password_verify($senha, $row['Senha'])) {
+                $_SESSION['autenticar'] = $row['Usuario'] . "\n" . $row['Cargo']; // Armazenar o nome do usuário na sessão
+                return true;
+            } else {
+                return false; // Senha incorreta
+            }
         } else {
-            // Usuário não autenticado
-            return false;
+            return false; // Usuário não encontrado
         }
     }
 }
-}
-// Uso da classe de login
-$login = new Login();
+
+// Instanciar a classe de conexão
+$conexao = new Conexao();
+
+// Passar a conexão para a classe de login
+$login = new Login($conexao->conn);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuario = $_POST["Usuario"];

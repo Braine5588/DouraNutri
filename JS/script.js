@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const homeButton = document.getElementById("home-button");
   if (homeButton) {
     homeButton.addEventListener("click", function() {
-      window.location.href = "home.php";
+      window.location.href = "../home.php";
     });
   }
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const imcButton = document.getElementById("imc-button");
   if (imcButton) {
     imcButton.addEventListener("click", function() {
-      window.open("imc.php", "_blank", "width=250,height=250");
+      window.open("../imc.php", "_blank", "width=250,height=250");
     });
   }
 
@@ -46,7 +46,7 @@ if (pdfbutton) {
   const tabela = document.querySelector("table"); // Selecione a tabela
   const tabelaHTML = tabela.outerHTML;
   
-  fetch("gerar_pdf.php", {
+  fetch("../gerar_pdf.php", {
       method: "POST",
       headers: {
           "Content-Type": "application/x-www-form-urlencoded",

@@ -3,17 +3,17 @@
 if ($cargo == 'Nutricionista') {
     ?>
 <div class="menuhome">
-    <a href="cadastroproduto.php">Cadastro de Produto</a>
-    <a href="listarproduto.php">Produtos Cadastrados</a>
-    <a href="cadastropedido.php">Cadastro de Pedido</a>
-    <a href="listarpedido.php">Pedidos Cadastrados</a>
-    <a href="cadastrovendedor.php">Cadastro de Funcionários</a>
-    <a href="listarvendedor.php">Funcionários Cadastrados</a>
-    <a href="cadastrocliente.php">Cadastro de Cliente</a>
-    <a href="listarcliente.php">Clientes Cadastrados</a>
-    <a href="cadastroconsulta.php">Cadastro de Consulta</a>
-    <a href="gerenciamentoconsulta.php">Consultas Cadastradas</a>
-    <a href = "editarusuario.php"> Editar Usuário </a>
+    <a href="Controller/cadastroproduto.php">Cadastro de Produto</a>
+    <a href="Controller/listarproduto.php">Produtos Cadastrados</a>
+    <a href="Controller/cadastropedido.php">Cadastro de Pedido</a>
+    <a href="Controller/listarpedido.php">Pedidos Cadastrados</a>
+    <a href="Controller/cadastrovendedor.php">Cadastro de Funcionários</a>
+    <a href="Controller/listarvendedor.php">Funcionários Cadastrados</a>
+    <a href="Controller/cadastrocliente.php">Cadastro de Cliente</a>
+    <a href="Controller/listarcliente.php">Clientes Cadastrados</a>
+    <a href="Controller/cadastroconsulta.php">Cadastro de Consulta</a>
+    <a href="Controller/gerenciamentoconsulta.php">Consultas Cadastradas</a>
+    <a href = "Controller/editarusuario.php"> Editar Usuário </a>
     <a href="logout.php">Sair</a> 
 </div>
 
@@ -21,26 +21,26 @@ if ($cargo == 'Nutricionista') {
 } elseif ($cargo == 'Administrador'){
     ?>
 <div class="menuhome">
-    <a href="cadastroproduto.php">Cadastro de Produto</a>
-    <a href="listarproduto.php">Produtos Cadastrados</a>
-    <a href="cadastropedido.php">Cadastro de Pedido</a>
-    <a href="listarpedido.php">Pedidos Cadastrados</a>
-    <a href="cadastrovendedor.php">Cadastro de Funcionários</a>
-    <a href="listarvendedor.php">Funcionários Cadastrados</a>
-    <a href="cadastrocliente.php">Cadastro de Cliente</a>
-    <a href="listarcliente.php">Clientes Cadastrados</a>
-    <a href = "editarusuario.php"> Editar Usuário </a>
+    <a href="Controller/cadastroproduto.php">Cadastro de Produto</a>
+    <a href="Controller/listarproduto.php">Produtos Cadastrados</a>
+    <a href="Controller/cadastropedido.php">Cadastro de Pedido</a>
+    <a href="Controller/listarpedido.php">Pedidos Cadastrados</a>
+    <a href="Controller/cadastrovendedor.php">Cadastro de Funcionários</a>
+    <a href="Controller/listarvendedor.php">Funcionários Cadastrados</a>
+    <a href="Controller/cadastrocliente.php">Cadastro de Cliente</a>
+    <a href="Controller/listarcliente.php">Clientes Cadastrados</a>
+    <a href = "Controller/editarusuario.php"> Editar Usuário </a>
     <a href="logout.php">Sair</a> 
 </div>
 <?php
 } elseif ($cargo == 'Vendedor'){
     ?>
 <div class="menuhome">
-    <a href="cadastroproduto.php">Cadastro de Produto</a>
-    <a href="listarproduto.php">Produtos Cadastrados</a>
-    <a href="cadastropedido.php">Cadastro de Pedido</a>
-    <a href="cadastrocliente.php">Cadastro de Cliente</a>
-    <a href = "editarusuario.php"> Editar Usuário </a>
+    <a href="Controller/cadastroproduto.php">Cadastro de Produto</a>
+    <a href="Controller/listarproduto.php">Produtos Cadastrados</a>
+    <a href="Controller/cadastropedido.php">Cadastro de Pedido</a>
+    <a href="Controller/cadastrocliente.php">Cadastro de Cliente</a>
+    <a href = "Controller/editarusuario.php"> Editar Usuário </a>
     <a href="logout.php">Sair</a> 
 </div>
 <?php

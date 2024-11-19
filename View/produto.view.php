@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro de Produto</title>
-  <link rel="icon" type="image/x-icon" href="img/ts1.png">
-  <link href="CSS/style.css" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="../img/ts1.png">
+  <link href="../CSS/style.css" rel="stylesheet"/>
 </head>
 <body>
   <header>
@@ -14,15 +14,18 @@
     <button id="home-button">Home</button>
     <div class = "alinhamentousuario">
     <p> 
-    <img src="img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
+    <img src="../img/usu.png"> <br>  <?php echo nl2br(htmlspecialchars($usuario)); ?> 
     </p>
     <div>
   </header>
   <?php
-  require 'menu.php';
+  require '../menu.php';
   ?>
   <div class="form">
-    <form method="post" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+  <?php if (!empty($mensagem)) echo $mensagem; ?>
+
+<!-- Formulário de cadastro -->
+<form method="post" action="">
     <br><label for="nome">Nome do Produto:</label>
     <input type="text" name="nome" required><br><br>
 
@@ -47,6 +50,6 @@
    <button type="submit" id="cadastrar-button">Cadastrar</button>
    
   </form>
-  <script src="JS/script.js"></script>
+  <script src="../JS/script.js"></script>
 </body>
 </html>

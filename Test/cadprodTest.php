@@ -1,6 +1,7 @@
 <?php
 use PHPUnit\Framework\TestCase;
 require_once 'Model/cadastroproduto.model.php';
+require_once 'conexao.php';
 
 class cadprodTest extends TestCase
 {
@@ -10,15 +11,13 @@ class cadprodTest extends TestCase
     {
         // Mock da classe CadastroCliente para simular o comportamento sem interação com o BD
         $this->cadastroProdutoMock = $this->getMockBuilder(CadastroProduto::class)
-                                          ->onlyMethods(['connectaBD', 'cadastrarProduto'])
+                                          ->onlyMethods(['cadastrarProduto'])
                                           ->getMock();
     }
 
     public function testProdutoClienteSucesso()
     {
-        // Simulando um cadastro de cliente com sucesso
-        $_SERVER["REQUEST_METHOD"] = "POST";
-        $_POST = [
+        $dados = [
             "nome" => "Teste",
             "categoria" => "teste",
             "preco" => "10",
@@ -30,17 +29,16 @@ class cadprodTest extends TestCase
 
         $this->cadastroProdutoMock->expects($this->once())
                                   ->method('cadastrarProduto')
+                                  ->with($dados)
                                   ->willReturn('<div class="message">Produto cadastrado com sucesso!</div>');
 
-        $output = $this->cadastroProdutoMock->cadastrarProduto();
+        $resultado = $this->cadastroProdutoMock->cadastrarProduto($dados);
 
-        $this->assertStringContainsString('Produto cadastrado com sucesso!', $output);
+        $this->assertStringContainsString('Produto cadastrado com sucesso!', $resultado);
     }
     public function testCadastroProdutoFalha()
     {
-        // Simulando uma falha no cadastro do cliente
-        $_SERVER["REQUEST_METHOD"] = "POST";
-        $_POST = [
+        $dados= [
             "nome" => "Teste",
             "categoria" => "teste",
             "preco" => "10",
@@ -52,11 +50,12 @@ class cadprodTest extends TestCase
 
         $this->cadastroProdutoMock->expects($this->once())
                                   ->method('cadastrarProduto')
+                                  ->with($dados)
                                   ->willReturn('<div class="messagefalha">Erro ao cadastrar o produto</div>');
 
-        $output = $this->cadastroProdutoMock->cadastrarProduto();
+        $resultado = $this->cadastroProdutoMock->cadastrarProduto($dados);
 
-        $this->assertStringContainsString('Erro ao cadastrar o produto', $output);
+        $this->assertStringContainsString('Erro ao cadastrar o produto', $resultado);
     }
 }
 ?>

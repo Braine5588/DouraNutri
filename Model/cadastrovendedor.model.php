@@ -1,57 +1,36 @@
 
 <?php
 class CadastroVendedor {
-  private $Nome;
-  private $Idade;
-  private $CPF;
-  private $Endereco;
-  private $Salario;
-  private $Cargo;
-  private $Usuario;
-  private $Senha;
-  private $Observacao;
-  private $conn;
+   private $conn;
 
   public function __construct() {
-    $this->connectaBD();
+    $this->conn = (new Conexao())->conn;
   }
 
-  private function connectaBD() {
-    $server = "localhost";
-    $user = "root";
-    $pass = "";
-    $mydb = "tb_produtos";
-
-    $this->conn = new mysqli($server, $user, $pass, $mydb);
-
-    if ($this->conn->connect_error) {
-      die("Conexão Falhou: " . $this->conn->connect_error);
-    }
-  }
-
-  public function cadastrarVendedor() {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $this->Nome = $_POST["nome"];
-      $this->Idade = $_POST["idade"];
-      $this->CPF = $_POST["cpf"];
-      $this->Endereco = $_POST["endereco"];
-       $this->Salario = $_POST["salario"];
-      $this->Cargo = $_POST["cargo"];
-      $this->Usuario = $_POST["usuario"];
-      $this->Senha = password_hash($_POST["senha"], PASSWORD_DEFAULT);
-      $this->Observacao = $_POST["observacao"];
+  public function cadastrarVendedor($dados) {
+      $Nome = $dados["nome"];
+      $Idade = $dados["idade"];
+      $CPF = $dados["cpf"];
+      $Endereco = $dados["endereco"];
+      $Salario = $dados["salario"];
+      $Cargo = $dados["cargo"];
+      $Usuario = $dados["usuario"];
+      $Senha = password_hash($dados["senha"], PASSWORD_DEFAULT);
+      $Observacao = $dados["observacao"];
 
       $sql = "INSERT INTO cadastrovendedor (Nome, Idade, CPF, Endereco, Salario, Cargo, Usuario, Senha, Observacao)
-              VALUES ('$this->Nome', '$this->Idade', '$this->CPF', '$this->Endereco','$this->Salario', '$this->Cargo', '$this->Usuario', '$this->Senha', '$this->Observacao')";
+              VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      $stmt = $this->conn->prepare($sql);
+      $stmt->bind_param("sisssssss", $Nome, $Idade, $CPF, $Endereco, $Salario, $Cargo, $Usuario, $Senha, $Observacao);
 
-      if ($this->conn->query($sql) === TRUE) {
-      echo '<div class="message">Vendedor cadastrado com sucesso!</div>';
+      if ($stmt->execute()) {
+      return '<div class="message">Vendedor cadastrado com sucesso!</div>';
       } else {
-        echo '<div class="messagefalha">Erro ao cadastrar o vendedor: </div>' . $this->conn->error;
+        return '<div class="messagefalha">Erro ao cadastrar o vendedor: </div>' . $this->conn->error;
       }
     }
   }
-}
+
 ?>
 
 
