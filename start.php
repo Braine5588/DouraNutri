@@ -2,7 +2,7 @@
 session_start();
 // Verifica se a variável de sessão está definida corretamente
 if (empty($_SESSION['autenticar'])) {
-    header('location: index.php');
+      header('location: https://localhost/DouraNutri/index.php');
     exit();
 }
 $usuario = $_SESSION['autenticar']; // Obtém o nome do usuário e cargo da sessão
